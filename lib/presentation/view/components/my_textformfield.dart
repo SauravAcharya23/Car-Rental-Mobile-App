@@ -7,13 +7,15 @@ class MyTextFormField extends StatefulWidget {
   final Widget? prefixIcon;
   final Widget? suffixIcon;
   final bool hideText;
+  final dynamic controller;
 
   const MyTextFormField({
     super.key, 
     required this.hintText,
     this.prefixIcon,
     this.suffixIcon,
-    required this.hideText
+    required this.hideText,
+    required this.controller
   });
 
   @override
@@ -47,6 +49,7 @@ class _MyTextFormFieldState extends State<MyTextFormField> {
       height: 50,
       child: TextFormField(
         focusNode: _focusNode,
+        controller: widget.controller,
         decoration: InputDecoration(
           enabledBorder: OutlineInputBorder(
             borderSide: const BorderSide(color: Colors.transparent),

@@ -14,6 +14,13 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
+
+  // text editing controllers
+  final usernameController = TextEditingController();
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,6 +57,7 @@ class _SignUpPageState extends State<SignUpPage> {
               const Gap(30),
 
               MyTextFormField(
+                controller: usernameController,
                 hintText: "username",
                 prefixIcon: Image.asset("lib/images/user.png"),
                 hideText: false,
@@ -58,6 +66,7 @@ class _SignUpPageState extends State<SignUpPage> {
               const Gap(25),
               
               MyTextFormField(
+                controller: emailController,
                 hintText: "Email",
                 prefixIcon: Image.asset("lib/images/Icon.png"),
                 hideText: false,
@@ -66,6 +75,7 @@ class _SignUpPageState extends State<SignUpPage> {
               const Gap(25),
 
               MyTextFormField(
+                controller: passwordController,
                 hintText: "Password",
                 prefixIcon: Image.asset("lib/images/lock.png"),
                 suffixIcon: Image.asset("lib/images/eye.png",),
@@ -75,6 +85,7 @@ class _SignUpPageState extends State<SignUpPage> {
               const Gap(25),
 
               MyTextFormField(
+                controller: confirmPasswordController,
                 hintText: "Confirm Password",
                 prefixIcon: Image.asset("lib/images/lock.png"),
                 suffixIcon: Image.asset("lib/images/eye.png",),

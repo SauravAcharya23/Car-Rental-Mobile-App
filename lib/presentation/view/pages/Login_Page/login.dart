@@ -17,6 +17,11 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+
+  // text editing controllers
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,11 +54,13 @@ class _LoginPageState extends State<LoginPage> {
                 hintText: "Email",
                 prefixIcon: Image.asset("lib/images/Icon.png"),
                 hideText: false,
+                controller: emailController,
               ),
 
               const Gap(25),
 
               MyTextFormField(
+                controller: passwordController,
                 hintText: "Password",
                 prefixIcon: Image.asset("lib/images/lock.png"),
                 suffixIcon: Image.asset("lib/images/eye.png",),
@@ -62,11 +69,14 @@ class _LoginPageState extends State<LoginPage> {
 
               const Gap(15),
 
-              Align(
-                alignment: Alignment.centerRight,
-                child: Text(
-                  "Forgot Password?",  
-                  style: GoogleFonts.poppins(fontSize: 14.0, color: colorLightBlue),
+              GestureDetector(
+                onTap: () => Navigator.pushNamed(context, Routes.forgotPassword),
+                child: Align(
+                  alignment: Alignment.centerRight,
+                  child: Text(
+                    "Forgot Password?",  
+                    style: GoogleFonts.poppins(fontSize: 14.0, color: colorLightBlue),
+                  ),
                 ),
               ),
 
