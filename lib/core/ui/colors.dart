@@ -6,3 +6,4 @@ const colorWhite = Color(0xffFFFFFF);
 const colorBlue = Color(0xff348AC7);
 const colorPurple = Color(0xff7474BF);
 const colorVeryLightGrey = Color(0xffD8D8D8);
+const colorLightPurple = Color(0xff6479C1);

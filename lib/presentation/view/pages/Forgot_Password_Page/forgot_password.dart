@@ -56,6 +56,7 @@ class _ForgotPasswordpageState extends State<ForgotPasswordpage> {
                 hintText: "Email",
                 prefixIcon: Image.asset("lib/images/Icon.png"),
                 hideText: false,
+                fillcolor: colorLightGrey.withOpacity(0.05), // 5% opacity,
               ),
 
               const Gap(25),

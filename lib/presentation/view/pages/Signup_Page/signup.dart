@@ -61,6 +61,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 hintText: "username",
                 prefixIcon: Image.asset("lib/images/user.png"),
                 hideText: false,
+                fillcolor: colorLightGrey.withOpacity(0.05), // 5% opacity,
               ),
 
               const Gap(25),
@@ -70,6 +71,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 hintText: "Email",
                 prefixIcon: Image.asset("lib/images/Icon.png"),
                 hideText: false,
+                fillcolor: colorLightGrey.withOpacity(0.05), // 5% opacity,
               ),
 
               const Gap(25),
@@ -80,6 +82,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 prefixIcon: Image.asset("lib/images/lock.png"),
                 suffixIcon: Image.asset("lib/images/eye.png",),
                 hideText: true,
+                fillcolor: colorLightGrey.withOpacity(0.05), // 5% opacity,
               ),
 
               const Gap(25),
@@ -90,6 +93,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 prefixIcon: Image.asset("lib/images/lock.png"),
                 suffixIcon: Image.asset("lib/images/eye.png",),
                 hideText: true,
+                fillcolor: colorLightGrey.withOpacity(0.05), // 5% opacity,
               ),
 
               const Gap(25),

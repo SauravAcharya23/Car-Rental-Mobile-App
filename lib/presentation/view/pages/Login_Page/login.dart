@@ -55,6 +55,7 @@ class _LoginPageState extends State<LoginPage> {
                 prefixIcon: Image.asset("lib/images/Icon.png"),
                 hideText: false,
                 controller: emailController,
+                fillcolor: colorLightGrey.withOpacity(0.05), // 5% opacity,
               ),
 
               const Gap(25),
@@ -65,6 +66,7 @@ class _LoginPageState extends State<LoginPage> {
                 prefixIcon: Image.asset("lib/images/lock.png"),
                 suffixIcon: Image.asset("lib/images/eye.png",),
                 hideText: true,
+                fillcolor: colorLightGrey.withOpacity(0.05), // 5% opacity,
               ),
 
               const Gap(15),

@@ -4,8 +4,9 @@ import 'package:google_fonts/google_fonts.dart';
 
 class MyButton extends StatelessWidget {
   final String bottonName;
+  final Widget? bottonIcon;
   final Function()? onTap;
-  const MyButton({super.key, required this.bottonName, required this.onTap});
+  const MyButton({super.key, required this.bottonName, required this.onTap, this.bottonIcon});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,7 @@ class MyButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(10.0),
         ),
         child: Center(
-          child: Text(
+          child: bottonIcon ?? Text(
             bottonName,
             style: GoogleFonts.poppins(fontSize: 16.0,color: colorWhite),
           ),

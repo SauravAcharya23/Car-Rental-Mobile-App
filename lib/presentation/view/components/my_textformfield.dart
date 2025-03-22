@@ -8,6 +8,7 @@ class MyTextFormField extends StatefulWidget {
   final Widget? suffixIcon;
   final bool hideText;
   final dynamic controller;
+  final Color fillcolor;
 
   const MyTextFormField({
     super.key, 
@@ -15,7 +16,8 @@ class MyTextFormField extends StatefulWidget {
     this.prefixIcon,
     this.suffixIcon,
     required this.hideText,
-    required this.controller
+    required this.controller,
+    required this.fillcolor
   });
 
   @override
@@ -59,7 +61,7 @@ class _MyTextFormFieldState extends State<MyTextFormField> {
             borderSide: const BorderSide(color: Colors.transparent),
             borderRadius: BorderRadius.circular(8.0)
           ),
-          fillColor: colorLightGrey.withOpacity(0.05), // 5% opacity
+          fillColor: widget.fillcolor, //colorLightGrey.withOpacity(0.05), // 5% opacity
           filled: true,
           prefixIcon: ColorFiltered(
             colorFilter: ColorFilter.mode(
