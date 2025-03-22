@@ -25,6 +25,7 @@ class _BookmarkPageState extends State<BookmarkPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: colorVeryLightGrey.withOpacity(.15),
       appBar: AppBar(
         title: Text(
           "Bookmark(s)",
