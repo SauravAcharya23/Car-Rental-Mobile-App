@@ -1,31 +1,31 @@
-
-
 import 'package:car_rental_app/core/ui/colors.dart';
 import 'package:car_rental_app/presentation/view/components/my_button.dart';
 import 'package:car_rental_app/presentation/view/components/my_social_button.dart';
 import 'package:car_rental_app/presentation/view/components/my_textformfield.dart';
-import 'package:car_rental_app/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class SignUpPage extends StatefulWidget {
+  const SignUpPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<SignUpPage> createState() => _SignUpPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _SignUpPageState extends State<SignUpPage> {
 
   // text editing controllers
+  final usernameController = TextEditingController();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 104),
           child: Column(
@@ -35,26 +35,43 @@ class _LoginPageState extends State<LoginPage> {
               const Gap(35),
 
               Text(
-                "Welcome Back", 
+                "Create New Account", 
                 style: GoogleFonts.poppins(fontWeight: FontWeight.bold, fontSize: 20.0),
               ),
 
               const Gap(10),
 
               Text(
-                "Log in to your account using email or social networks",  
+                "Set up your username and password.",  
+                style: GoogleFonts.poppins(fontSize: 14.0, color: colorLightGrey,),
+                textAlign: TextAlign.center,
+                softWrap: true,
+              ),
+              Text(
+                "You can always change it later.",  
                 style: GoogleFonts.poppins(fontSize: 14.0, color: colorLightGrey,),
                 textAlign: TextAlign.center,
                 softWrap: true,
               ),
 
               const Gap(30),
+
+              MyTextFormField(
+                controller: usernameController,
+                hintText: "username",
+                prefixIcon: Image.asset("lib/images/user.png"),
+                hideText: false,
+                // fillcolor: colorLightGrey.withOpacity(0.05), // 5% opacity,
+                fillcolor: colorLightGrey.withAlpha((0.05 * 255).toInt()),
+              ),
+
+              const Gap(25),
               
               MyTextFormField(
+                controller: emailController,
                 hintText: "Email",
                 prefixIcon: Image.asset("lib/images/Icon.png"),
                 hideText: false,
-                controller: emailController,
                 // fillcolor: colorLightGrey.withOpacity(0.05), // 5% opacity,
                 fillcolor: colorLightGrey.withAlpha((0.05 * 255).toInt()),
               ),
@@ -71,23 +88,22 @@ class _LoginPageState extends State<LoginPage> {
                 fillcolor: colorLightGrey.withAlpha((0.05 * 255).toInt()),
               ),
 
-              const Gap(15),
+              const Gap(25),
 
-              GestureDetector(
-                onTap: () {},
-                child: Align(
-                  alignment: Alignment.centerRight,
-                  child: Text(
-                    "Forgot Password?",  
-                    style: GoogleFonts.poppins(fontSize: 14.0, color: colorLightBlue),
-                  ),
-                ),
+              MyTextFormField(
+                controller: confirmPasswordController,
+                hintText: "Confirm Password",
+                prefixIcon: Image.asset("lib/images/lock.png"),
+                suffixIcon: Image.asset("lib/images/eye.png",),
+                hideText: true,
+                // fillcolor: colorLightGrey.withOpacity(0.05), // 5% opacity,
+                fillcolor: colorLightGrey.withAlpha((0.05 * 255).toInt()),
               ),
 
               const Gap(25),
 
               MyButton(
-                bottonName: "Log In",
+                bottonName: "Sign Up",
                 onTap: () {
                   
                 },
@@ -99,13 +115,13 @@ class _LoginPageState extends State<LoginPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "First time here? ",  
+                    "Already have an account? ",  
                     style: GoogleFonts.poppins(fontSize: 14.0,),
                   ),
                   GestureDetector(
-                    onTap: ()  => Navigator.pushNamed(context, Routes.signup),
+                    onTap: () => Navigator.pop(context),
                     child: Text(
-                      "Sign up",  
+                      "Log in",  
                       style: GoogleFonts.poppins(fontSize: 14.0,color: colorLightBlue),
                     ),
                   ),

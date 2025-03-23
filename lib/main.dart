@@ -1,7 +1,16 @@
 import 'package:car_rental_app/presentation/view/pages/Login_Page/login.dart';
+import 'package:car_rental_app/routes/app_routes.dart';
+import 'package:car_rental_app/routes/routes.dart';
 import 'package:flutter/material.dart';
 
 void main() {
+  // Device Preview Code
+  // runApp(
+  //   DevicePreview(
+  //     enabled: !kReleaseMode,
+  //     builder: (context) => const MyApp(),
+  //   )
+  // );
   runApp(const MyApp());
 }
 
@@ -14,24 +23,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
+      // locale: DevicePreview.locale(context),
+      // builder: DevicePreview.appBuilder,
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
+      routes: AppRoutes.routes,
+      initialRoute: Routes.login,
       home: const LoginPage()
     );
   }
