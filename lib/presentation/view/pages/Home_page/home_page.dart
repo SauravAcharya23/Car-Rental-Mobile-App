@@ -3,6 +3,7 @@ import 'package:car_rental_app/presentation/view/components/homepage_components/
 import 'package:car_rental_app/presentation/view/components/homepage_components/top_cars.dart';
 import 'package:car_rental_app/presentation/view/components/my_button.dart';
 import 'package:car_rental_app/presentation/view/components/my_textformfield.dart';
+import 'package:car_rental_app/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -97,7 +98,7 @@ class _HomePageState extends State<HomePage> {
                     child: MyButton(
                       bottonName: 'filter', 
                       bottonIcon: Image.asset('lib/images/filter.png'),
-                      onTap: () {},
+                      onTap: () => Navigator.pushNamed(context, Routes.filter),
                     ),
                   )
                 ],

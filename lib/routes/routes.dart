@@ -6,4 +6,5 @@ class Routes {
   static const String forgotPassword = 'forgotPassword';
   static const String homepage = 'homepage';
   static const String bottomnavbar = 'bottomnavbar';
+  static const String filter = 'filter';
 }
