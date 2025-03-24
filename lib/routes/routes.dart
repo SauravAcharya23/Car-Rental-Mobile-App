@@ -7,4 +7,5 @@ class Routes {
   static const String homepage = 'homepage';
   static const String bottomnavbar = 'bottomnavbar';
   static const String filter = 'filter';
+  static const String carDetails = 'carDetails';
 }

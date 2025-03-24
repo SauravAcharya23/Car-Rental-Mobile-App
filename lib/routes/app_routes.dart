@@ -1,4 +1,5 @@
 import 'package:car_rental_app/presentation/view/pages/Bottom_Navbar_page/bottom_navbar.dart';
+import 'package:car_rental_app/presentation/view/pages/Car_Details_Page/car_details.dart';
 import 'package:car_rental_app/presentation/view/pages/Filter_Page/filter.dart';
 import 'package:car_rental_app/presentation/view/pages/Forgot_Password_Page/forgot_password.dart';
 import 'package:car_rental_app/presentation/view/pages/Home_page/home_page.dart';
@@ -14,5 +15,6 @@ class AppRoutes {
     Routes.homepage: (context) => const HomePage(),
     Routes.bottomnavbar: (context) => const BottomNavBar(),
     Routes.filter: (context) => const FilterPage(),
+    Routes.carDetails: (context) => const CarDetailsPage(),
   };
 }

@@ -1,5 +1,6 @@
 
 import 'package:car_rental_app/presentation/view/components/homepage_components/car_card.dart';
+import 'package:car_rental_app/routes/routes.dart';
 import 'package:flutter/material.dart';
 
 class TopCars extends StatefulWidget {
@@ -25,7 +26,7 @@ class _TopCarsState extends State<TopCars> {
       physics: const NeverScrollableScrollPhysics(),  // Disables scrolling
       itemBuilder: (context, index) {
         return GestureDetector(
-          onTap: () {},
+          onTap: () => Navigator.pushNamed(context, Routes.carDetails),
           child: CarCard(
             image: topCars[index]['image']!,
             name: topCars[index]['name']!,

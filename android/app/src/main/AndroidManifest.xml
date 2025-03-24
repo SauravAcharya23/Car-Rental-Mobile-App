@@ -2,7 +2,11 @@
     <application
         android:label="car_rental_app"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/ic_launcher"
+        android:networkSecurityConfig="@xml/network_security_config" 
+        android:usesCleartextTraffic="true">
+        <!--  above two For 360 view of car details -->
+        
         <activity
             android:name=".MainActivity"
             android:exported="true"
