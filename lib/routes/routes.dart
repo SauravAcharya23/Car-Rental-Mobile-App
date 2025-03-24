@@ -8,4 +8,5 @@ class Routes {
   static const String bottomnavbar = 'bottomnavbar';
   static const String filter = 'filter';
   static const String carDetails = 'carDetails';
+  static const String cards = 'cards';
 }
