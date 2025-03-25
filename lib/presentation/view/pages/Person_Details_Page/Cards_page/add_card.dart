@@ -1,4 +1,5 @@
 import 'package:car_rental_app/core/ui/colors.dart';
+import 'package:car_rental_app/presentation/view/components/extra/extra.dart';
 import 'package:car_rental_app/presentation/view/components/my_button.dart';
 import 'package:car_rental_app/presentation/view/components/my_textformfield.dart';
 import 'package:car_rental_app/presentation/view/components/profile_components/Card_component/input_text_format.dart';
@@ -15,9 +16,39 @@ class AddCard extends StatefulWidget {
 }
 
 class _AddCardState extends State<AddCard> {
+
   final TextEditingController _controller = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
   final TextEditingController _yearMonthController = TextEditingController();
-  final TextEditingController _CSVController = TextEditingController();
+  final TextEditingController _csvController = TextEditingController();
+
+  @override
+  void initState() {
+    // Listen for changes in the text field to update the state
+     _controller.addListener(() {
+      setState(() {}); // Rebuild the widget whenever the text changes
+    });
+    _nameController.addListener(() {
+      setState(() {}); // Rebuild the widget whenever the text changes
+    });
+    _yearMonthController.addListener(() {
+      setState(() {}); // Rebuild on year-month change
+    });
+    _csvController.addListener(() {
+      setState(() {}); // Rebuild on CSV change
+    });
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    _nameController.dispose();
+    _yearMonthController.dispose();
+    _csvController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,16 +67,43 @@ class _AddCardState extends State<AddCard> {
             Navigator.pop(context);
           },
         ),
-        actions: [
-          // 
-          Image.asset('lib/images/focus.png'),
-          const Gap(20),
-        ],
+        // actions: [
+          
+        //   GestureDetector(
+        //     onTap: () => Navigator.pushNamed(context, Routes.scanCard),
+        //     child: Image.asset('lib/images/focus.png')
+        //   ),
+        //   const Gap(20),
+        // ],
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10), //vertical: 60,
+        padding: const EdgeInsets.symmetric(horizontal: 20, ), //vertical: 60,
         child: Column(
           children: [
+            
+            creditCardWidget(
+              cardNumber: _controller.text.trim().toString(),
+              expiryDate: _yearMonthController.text.trim().toString(), 
+              cardHolderName: _nameController.text.trim().toString(),//"Saurav", 
+              cvvCode: _csvController.text.trim().toString(), 
+              enableFloatingCard: true,
+              colors: [
+                Colors.grey.withAlpha(20),
+                Colors.white.withAlpha(20),
+              ]
+            ),
+
+            const Gap(15),
+
+            // For Card Name
+            MyTextFormField(
+              hintText: "Name on card", 
+              hideText: false , 
+              controller: _nameController, 
+              fillcolor: colorLightGrey.withAlpha((0.09 * 255).toInt()),
+              prefixIcon: Image.asset("lib/images/person.png"),
+            ),
+            const Gap(25),
             // For Card number
             MyTextFormField(
               hintText: "XXXX XXXX XXXX XXXX", 
@@ -89,7 +147,7 @@ class _AddCardState extends State<AddCard> {
                   child: MyTextFormField(
                     hintText: "Enter CSV", 
                     hideText: true, 
-                    controller: _CSVController, 
+                    controller: _csvController, 
                     fillcolor: colorLightGrey.withAlpha((0.09 * 255).toInt()),
                     keyboardtype: TextInputType.number,
                     inputFormatters: [

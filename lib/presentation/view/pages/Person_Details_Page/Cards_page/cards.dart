@@ -1,4 +1,5 @@
 import 'package:car_rental_app/core/ui/colors.dart';
+import 'package:car_rental_app/presentation/view/components/extra/extra.dart';
 import 'package:car_rental_app/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -46,62 +47,73 @@ class _CardsPageState extends State<CardsPage> {
         physics: const BouncingScrollPhysics(),
         padding: const EdgeInsets.symmetric(horizontal: 20, ), //vertical: 60,,
         itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.only(bottom: 20.0), // Adjust spacing as needed,
-            child: Container(
-              decoration: BoxDecoration(
-                gradient: const LinearGradient(
-                  colors: [colorPurple, colorBlue],// Adjust colors as needed
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight
-                ),
-                borderRadius: BorderRadius.circular(10.0),
-              ),
-              child: Card(
-                color: Colors.transparent, // Make card transparent
-                clipBehavior: Clip.hardEdge,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Visa Card",  
-                        style: GoogleFonts.poppins(fontSize: 14.0, color: colorLightGrey,),
-                      ),
-                      const Gap(4),
-                      Text(
-                        "•••• •••• •••• 2847",  
-                        style: GoogleFonts.poppins(fontSize: 14.0,fontWeight: FontWeight.bold, color: colorWhite),
-                      ),
-                      const Gap(10),
-                      Text(
-                        "Card Name",  
-                        style: GoogleFonts.poppins(fontSize: 14.0, color: colorLightGrey,),
-                      ),
-                      const Gap(4),
-                      Text(
-                        "Mike Smith",  
-                        style: GoogleFonts.poppins(fontSize: 14.0,fontWeight: FontWeight.bold, color: colorWhite),
-                      ),
-                      const Gap(10),
-                      Text(
-                        "Expires Date",  
-                        style: GoogleFonts.poppins(fontSize: 14.0, color: colorLightGrey,),
-                      ),
-                      const Gap(4),
-                      Text(
-                        "04/30",  
-                        style: GoogleFonts.poppins(fontSize: 14.0,fontWeight: FontWeight.bold, color: colorWhite),
-                      ),
-                      const Gap(10),
-                      Image.asset("lib/images/chip.png",)
-                    ],
-                  ),
-                ),
-              ),
-            ),
+          return creditCardWidget(
+            cardNumber: "1234567890123456", 
+            expiryDate: "04/30", 
+            cardHolderName: "Mike Smith", 
+            cvvCode: "123",
+            enableFloatingCard: false,
+            colors: [
+              colorPurple,
+              colorBlue
+            ]
           );
+          // Padding(
+          //   padding: const EdgeInsets.only(bottom: 20.0), // Adjust spacing as needed,
+          //   child: Container(
+          //     decoration: BoxDecoration(
+          //       gradient: const LinearGradient(
+          //         colors: [colorPurple, colorBlue],// Adjust colors as needed
+          //         begin: Alignment.topLeft,
+          //         end: Alignment.bottomRight
+          //       ),
+          //       borderRadius: BorderRadius.circular(10.0),
+          //     ),
+          //     child: Card(
+          //       color: Colors.transparent, // Make card transparent
+          //       clipBehavior: Clip.hardEdge,
+          //       child: Padding(
+          //         padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
+          //         child: Column(
+          //           crossAxisAlignment: CrossAxisAlignment.start,
+          //           children: [
+          //             Text(
+          //               "Visa Card",  
+          //               style: GoogleFonts.poppins(fontSize: 14.0, color: colorLightGrey,),
+          //             ),
+          //             const Gap(4),
+          //             Text(
+          //               "•••• •••• •••• 2847",  
+          //               style: GoogleFonts.poppins(fontSize: 14.0,fontWeight: FontWeight.bold, color: colorWhite),
+          //             ),
+          //             const Gap(10),
+          //             Text(
+          //               "Card Name",  
+          //               style: GoogleFonts.poppins(fontSize: 14.0, color: colorLightGrey,),
+          //             ),
+          //             const Gap(4),
+          //             Text(
+          //               "Mike Smith",  
+          //               style: GoogleFonts.poppins(fontSize: 14.0,fontWeight: FontWeight.bold, color: colorWhite),
+          //             ),
+          //             const Gap(10),
+          //             Text(
+          //               "Expires Date",  
+          //               style: GoogleFonts.poppins(fontSize: 14.0, color: colorLightGrey,),
+          //             ),
+          //             const Gap(4),
+          //             Text(
+          //               "04/30",  
+          //               style: GoogleFonts.poppins(fontSize: 14.0,fontWeight: FontWeight.bold, color: colorWhite),
+          //             ),
+          //             const Gap(10),
+          //             Image.asset("lib/images/chip.png",)
+          //           ],
+          //         ),
+          //       ),
+          //     ),
+          //   ),
+          // );
         },
       ),
     );

@@ -10,4 +10,5 @@ class Routes {
   static const String carDetails = 'carDetails';
   static const String cards = 'cards';
   static const String addCard = 'addCard';
+  static const String scanCard = 'scanCard';
 }
