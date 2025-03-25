@@ -77,7 +77,10 @@ class _PersonDetailsPageState extends State<PersonDetailsPage> {
                         "William Mike", 
                         style: GoogleFonts.poppins(fontWeight: FontWeight.bold, fontSize: 20.0),
                       ),
-                      Text('Edit Profile', style: GoogleFonts.poppins(fontSize: 14.0,color: colorLightBlue),),
+                      GestureDetector(
+                        onTap: () => Navigator.pushNamed(context, Routes.editProfile),
+                        child: Text('Edit Profile', style: GoogleFonts.poppins(fontSize: 14.0,color: colorLightBlue),)
+                      ),
                     ],
                   )
                 ],

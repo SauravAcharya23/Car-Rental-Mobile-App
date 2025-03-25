@@ -12,6 +12,8 @@ class MyTextFormField extends StatefulWidget {
   final Color fillcolor;
   final TextInputType? keyboardtype;
   final List<TextInputFormatter>? inputFormatters;
+  final bool? readOnly;
+  final Function()? onTap;
 
   const MyTextFormField({
     super.key, 
@@ -22,7 +24,9 @@ class MyTextFormField extends StatefulWidget {
     required this.controller,
     required this.fillcolor,
     this.keyboardtype,
-    this.inputFormatters
+    this.inputFormatters,
+    this.readOnly,
+    this.onTap
   });
 
   @override
@@ -87,6 +91,8 @@ class _MyTextFormFieldState extends State<MyTextFormField> {
           )
         ),
         obscureText: widget.hideText,
+        readOnly: widget.readOnly ?? false,
+        onTap: widget.onTap,
       ),
     );
   }

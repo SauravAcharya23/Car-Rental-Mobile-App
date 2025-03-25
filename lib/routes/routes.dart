@@ -12,4 +12,5 @@ class Routes {
   static const String addCard = 'addCard';
   static const String scanCard = 'scanCard';
   static const String settings = 'settings';
+  static const String editProfile = 'editProfile';
 }
