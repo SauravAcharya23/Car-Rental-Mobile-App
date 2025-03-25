@@ -1,4 +1,5 @@
 import 'package:car_rental_app/core/ui/colors.dart';
+import 'package:car_rental_app/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -30,7 +31,10 @@ class _CardsPageState extends State<CardsPage> {
           },
         ),
         actions: [
-          Icon(Icons.add, size: 30,),
+          GestureDetector(
+            onTap: () => Navigator.pushNamed(context, Routes.addCard),
+            child: Icon(Icons.add, size: 30,)
+          ),
           const Gap(20),
         ],
       ),

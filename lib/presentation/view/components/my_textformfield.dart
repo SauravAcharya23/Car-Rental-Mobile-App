@@ -1,5 +1,6 @@
 import 'package:car_rental_app/core/ui/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class MyTextFormField extends StatefulWidget {
 
@@ -9,6 +10,8 @@ class MyTextFormField extends StatefulWidget {
   final bool hideText;
   final dynamic controller;
   final Color fillcolor;
+  final TextInputType? keyboardtype;
+  final List<TextInputFormatter>? inputFormatters;
 
   const MyTextFormField({
     super.key, 
@@ -17,7 +20,9 @@ class MyTextFormField extends StatefulWidget {
     this.suffixIcon,
     required this.hideText,
     required this.controller,
-    required this.fillcolor
+    required this.fillcolor,
+    this.keyboardtype,
+    this.inputFormatters
   });
 
   @override
@@ -52,6 +57,8 @@ class _MyTextFormFieldState extends State<MyTextFormField> {
       child: TextFormField(
         focusNode: _focusNode,
         controller: widget.controller,
+        keyboardType: widget.keyboardtype,
+        inputFormatters: widget.inputFormatters,
         decoration: InputDecoration(
           enabledBorder: OutlineInputBorder(
             borderSide: const BorderSide(color: Colors.transparent),
@@ -63,13 +70,15 @@ class _MyTextFormFieldState extends State<MyTextFormField> {
           ),
           fillColor: widget.fillcolor, //colorLightGrey.withOpacity(0.05), // 5% opacity
           filled: true,
-          prefixIcon: ColorFiltered(
-            colorFilter: ColorFilter.mode(
-              _isFocused ? colorLightBlue : colorLightGrey, // Change color dynamically
-              BlendMode.srcIn,
-            ),
-            child: widget.prefixIcon,
-          ),
+          prefixIcon: widget.prefixIcon != null
+            ? ColorFiltered(
+                colorFilter: ColorFilter.mode(
+                  _isFocused ? colorLightBlue : colorLightGrey,
+                  BlendMode.srcIn,
+                ),
+                child: widget.prefixIcon,
+              )
+            : null,
           suffixIcon: widget.suffixIcon,
           hintText: widget.hintText,
           hintStyle: TextStyle(
