@@ -1,5 +1,4 @@
 import 'package:car_rental_app/core/ui/colors.dart';
-import 'package:car_rental_app/presentation/view/components/profile_components/documents_card.dart';
 import 'package:car_rental_app/presentation/view/components/profile_components/my_listtile.dart';
 import 'package:car_rental_app/routes/routes.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +13,18 @@ class PersonDetailsPage extends StatefulWidget {
 }
 
 class _PersonDetailsPageState extends State<PersonDetailsPage> {
+
+  final listTile = [
+    {"title": "My Profile", "image": 'lib/images/person.png', "link": ""},
+    {"title": "Payment Method", "image": 'lib/images/cards.png', "link": Routes.cards},
+    {"title": "My Bookings", "image": 'lib/images/booking.png', "link": ""},
+    {"title": "My Wallet", "image": 'lib/images/wallet.png', "link": ""},
+    {"title": "Settings", "image": 'lib/images/setting.png', "link": Routes.settings},
+    {"title": "Help Center", "image": 'lib/images/question.png', "link": ""},
+    {"title": "Privacy Policy", "image": 'lib/images/privacy-policy.png', "link": ""},
+    {"title": "Log Out", "image": 'lib/images/logout.png', "link": ""},
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -80,37 +91,24 @@ class _PersonDetailsPageState extends State<PersonDetailsPage> {
 
               const Gap(15),
 
-              const DocumentsCard(),
+              // const DocumentsCard(),
 
-              const Gap(15),
+              // const Gap(15),
 
-              MyListTile(
-                title: "My Profile",
-                image: 'lib/images/person.png',
-                onTap: () {
-                  
-                },
-              ),
-
-              MyListTile(
-                title: "My Bookings",
-                image: 'lib/images/booking.png',
-                onTap: () {
-                  
-                },
-              ),
-
-              MyListTile(
-                title: "Settings",
-                image: 'lib/images/setting.png',
-                onTap: () => Navigator.pushNamed(context, Routes.settings),
-              ),
-
-              MyListTile(
-                title: "Logout",
-                image: 'lib/images/logout.png',
-                onTap: () {
-                  
+              ListView.builder(
+                itemCount: listTile.length,
+                shrinkWrap: true,
+                primary: false,
+                padding: EdgeInsets.zero,
+                itemBuilder: (context, index) {
+                  return GestureDetector(
+                    onTap: () => Navigator.pushNamed(context, listTile[index]['link']!),
+                    child: MyListTile(
+                      title: listTile[index]['title']!,
+                      image: listTile[index]['image']!,
+                      onTap: () => Navigator.pushNamed(context, listTile[index]['link']!)
+                    ),
+                  );
                 },
               ),
 

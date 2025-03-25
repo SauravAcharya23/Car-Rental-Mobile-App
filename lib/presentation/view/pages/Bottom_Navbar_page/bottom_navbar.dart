@@ -74,7 +74,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
               ),
               child: Image.asset('lib/images/person.png'),
             ),
-            label: "Person"
+            label: "Profile"
           )
         ],
         currentIndex: selectedIndex,

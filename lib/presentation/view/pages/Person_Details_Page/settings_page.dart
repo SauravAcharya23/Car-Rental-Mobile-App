@@ -11,6 +11,13 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
+
+  final settingsList = [
+    {"title": "Terms & Conditions", "image": 'lib/images/id3.png', "link": ""},
+    {"title": "Notification Settings", "image": 'lib/images/notification.png', "link": ""},
+    {"title": "Delete Account", "image": 'lib/images/bin.png', "link": ""},
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,22 +39,21 @@ class _SettingsPageState extends State<SettingsPage> {
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Column(
-          children: [
-            MyListTile(
-              title: "Privacy Policy",
-              onTap: () {
-                
-              },
-            ),
-            MyListTile(
-              title: "Terms & Conditions",
-              onTap: () {
-                
-              },
-            ),
-          ],
-        ),
+        child: ListView.builder(
+          shrinkWrap: true,
+          primary: false,
+          itemCount: settingsList.length,
+          itemBuilder: (context, index) {
+            return  GestureDetector(
+              onTap: () => Navigator.pushNamed(context, settingsList[index]['link']!),
+              child: MyListTile(
+                title: settingsList[index]['title']!,
+                image: settingsList[index]['image']!,
+                onTap: ()  => Navigator.pushNamed(context, settingsList[index]['link']!)
+              ),
+            );
+          },
+        )
       ),
     );
   }
