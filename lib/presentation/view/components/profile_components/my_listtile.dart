@@ -6,9 +6,9 @@ class MyListTile extends StatelessWidget {
   
   final String title;
   final Function() onTap;
-  final String image;
+  final String? image;
 
-  const MyListTile({super.key, required this.title, required this.onTap, required this.image});
+  const MyListTile({super.key, required this.title, required this.onTap, this.image});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class MyListTile extends StatelessWidget {
         onTap: onTap,
         child: const Icon(Icons.keyboard_arrow_right_rounded, size: 30, color: colorLightGrey)
       ),
-      leading: CircleAvatar(
+      leading: image != null ? CircleAvatar(
         // backgroundColor: colorLightGrey.withOpacity(.13),
         backgroundColor: colorLightGrey.withAlpha((0.13 * 255).toInt()),
         // backgroundImage:  const AssetImage('lib/images/person.png'),
@@ -30,10 +30,10 @@ class MyListTile extends StatelessWidget {
               colorLightBlue, // Change the tint color
               BlendMode.srcATop, // Blending mode for tint effect
             ),
-            child: Image.asset(image, fit: BoxFit.contain,width: 20,),
+            child: Image.asset(image!, fit: BoxFit.contain,width: 20,),
           ),
         ),
-      ),
+      ): null,
     );
   }
 }

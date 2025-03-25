@@ -1,6 +1,7 @@
 import 'package:car_rental_app/core/ui/colors.dart';
 import 'package:car_rental_app/presentation/view/components/profile_components/documents_card.dart';
 import 'package:car_rental_app/presentation/view/components/profile_components/my_listtile.dart';
+import 'package:car_rental_app/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -102,9 +103,7 @@ class _PersonDetailsPageState extends State<PersonDetailsPage> {
               MyListTile(
                 title: "Settings",
                 image: 'lib/images/setting.png',
-                onTap: () {
-                  
-                },
+                onTap: () => Navigator.pushNamed(context, Routes.settings),
               ),
 
               MyListTile(
