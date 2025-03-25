@@ -1,5 +1,6 @@
 import 'package:car_rental_app/core/ui/colors.dart';
 import 'package:car_rental_app/presentation/view/components/profile_components/my_listtile.dart';
+import 'package:car_rental_app/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -15,6 +16,7 @@ class _SettingsPageState extends State<SettingsPage> {
   final settingsList = [
     {"title": "Terms & Conditions", "image": 'lib/images/id3.png', "link": ""},
     {"title": "Notification Settings", "image": 'lib/images/notification.png', "link": ""},
+    {"title": "Password Manager", "image": 'lib/images/key.png', "link": Routes.passwordManager},
     {"title": "Delete Account", "image": 'lib/images/bin.png', "link": ""},
   ];
 

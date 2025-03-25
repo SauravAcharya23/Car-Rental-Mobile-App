@@ -13,4 +13,5 @@ class Routes {
   static const String scanCard = 'scanCard';
   static const String settings = 'settings';
   static const String editProfile = 'editProfile';
+  static const String passwordManager = 'passwordManager';
 }
