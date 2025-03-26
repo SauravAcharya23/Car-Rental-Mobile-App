@@ -1,9 +1,12 @@
-import 'package:car_rental_app/presentation/view/pages/Bottom_Navbar_page/bottom_navbar.dart';
+import 'package:car_rental_app/presentation/view/pages/Login_Page/login.dart';
 import 'package:car_rental_app/routes/app_routes.dart';
 import 'package:car_rental_app/routes/routes.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   // Device Preview Code
   // runApp(
   //   DevicePreview(
@@ -29,8 +32,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
       routes: AppRoutes.routes,
-      initialRoute: Routes.bottomnavbar,
-      home: const BottomNavBar()
+      initialRoute: Routes.login,
+      home: const LoginPage()
     );
   }
 }
