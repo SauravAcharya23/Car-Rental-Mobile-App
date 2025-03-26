@@ -6,10 +6,10 @@ import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class FeatureCard extends StatelessWidget {
-  final String image;
+  final String? image;
   final String category;
   final String categoryDetail;
-  const FeatureCard({super.key, required this.image, required this.category, required this.categoryDetail});
+  const FeatureCard({super.key, this.image, required this.category, required this.categoryDetail});
 
   @override
   Widget build(BuildContext context) {
@@ -26,16 +26,16 @@ class FeatureCard extends StatelessWidget {
           ),
         ],
       ),
-      padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 20.0),
+      padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 6.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         // mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset(image, color: colorLightPurple, scale:1.5,),
-          const Gap(20),
+          if (image != null) Image.asset(image!, color: colorLightPurple, scale:1.5,) else Gap(0),
+          image != null ? const Gap(20): const Gap(8),
           Text(
             category, 
-            style: GoogleFonts.poppins(fontWeight: FontWeight.bold, fontSize: 18.0),
+            style: GoogleFonts.poppins(fontWeight: FontWeight.bold, fontSize: 16.0),
           ),
           const Gap(7),
           Text(
