@@ -1,3 +1,4 @@
+import 'package:car_rental_app/core/network/services/auth.dart';
 import 'package:car_rental_app/core/ui/colors.dart';
 import 'package:car_rental_app/presentation/view/components/profile_components/my_listtile.dart';
 import 'package:car_rental_app/routes/routes.dart';
@@ -13,6 +14,8 @@ class PersonDetailsPage extends StatefulWidget {
 }
 
 class _PersonDetailsPageState extends State<PersonDetailsPage> {
+
+  final AuthService _auth = AuthService();
 
   final listTile = [
     {"title": "My Profile", "image": 'lib/images/person.png', "link": ""},
@@ -105,11 +108,11 @@ class _PersonDetailsPageState extends State<PersonDetailsPage> {
                 padding: EdgeInsets.zero,
                 itemBuilder: (context, index) {
                   return GestureDetector(
-                    onTap: () => Navigator.pushNamed(context, listTile[index]['link']!),
+                    onTap: () => listTile[index]['title'] == "Log Out" ? _auth.logout()  :Navigator.pushNamed(context, listTile[index]['link']!),
                     child: MyListTile(
                       title: listTile[index]['title']!,
                       image: listTile[index]['image']!,
-                      onTap: () => Navigator.pushNamed(context, listTile[index]['link']!)
+                      onTap: () => listTile[index]['title'] == "Log Out" ? _auth.logout()  :Navigator.pushNamed(context, listTile[index]['link']!)
                     ),
                   );
                 },

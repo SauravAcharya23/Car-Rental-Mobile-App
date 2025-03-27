@@ -55,4 +55,10 @@ class AuthService{
     // return UserModel(uid: user.uid);
   }
 
+
+  // Logout user
+  Future logout()async{
+    await _auth.signOut();
+  }
+
 }
