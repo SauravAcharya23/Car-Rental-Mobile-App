@@ -102,6 +102,13 @@ class _AddCardState extends State<AddCard> {
               controller: _nameController, 
               fillcolor: colorLightGrey.withAlpha((0.09 * 255).toInt()),
               prefixIcon: Image.asset("lib/images/person.png"),
+              validate: (val) {
+                if(val!.isEmpty){
+                  return "*Name field required";
+                }else{
+                  return null;
+                }
+              },
             ),
             const Gap(25),
             // For Card number
@@ -117,6 +124,13 @@ class _AddCardState extends State<AddCard> {
                 LengthLimitingTextInputFormatter(16),
                 CardNumberFormatter(),
               ],
+              validate: (val) {
+                if(val!.isEmpty){
+                  return "*Card number field required";
+                }else{
+                  return null;
+                }
+              },
             ),
             const Gap(25),
             
@@ -136,6 +150,13 @@ class _AddCardState extends State<AddCard> {
                       LengthLimitingTextInputFormatter(4),
                       ExpiryDateFormatter(),
                     ],
+                    validate: (val) {
+                      if(val!.isEmpty){
+                        return "*Expiry Date field required";
+                      }else{
+                        return null;
+                      }
+                    },
                   ),
                 ),
 
@@ -154,6 +175,13 @@ class _AddCardState extends State<AddCard> {
                       FilteringTextInputFormatter.digitsOnly,
                       LengthLimitingTextInputFormatter(3), // Limit to 3 digits
                     ],
+                    validate: (val) {
+                      if(val!.isEmpty){
+                        return "*CVV field required";
+                      }else{
+                        return null;
+                      }
+                    },
                   ),
                 ),
               ],

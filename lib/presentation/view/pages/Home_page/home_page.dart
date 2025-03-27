@@ -91,6 +91,13 @@ class _HomePageState extends State<HomePage> {
                       controller: searchController,
                       prefixIcon: Image.asset('lib/images/search.png'),
                       fillcolor: colorWhite,
+                      validate: (val) {
+                        if(val!.isEmpty){
+                          return "*Search field required";
+                        }else{
+                          return null;
+                        }
+                      },
                     ),
                   ),
                   const Gap(15),

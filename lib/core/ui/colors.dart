@@ -8,3 +8,4 @@ const colorPurple = Color(0xff7474BF);
 const colorVeryLightGrey = Color(0xffD8D8D8);
 const colorLightPurple = Color(0xff6479C1);
 const colorBlack = Color(0xff131A34);
+const colorRed = Color(0xFFF01111);

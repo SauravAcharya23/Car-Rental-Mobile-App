@@ -75,6 +75,13 @@ class _EditProfilePageState extends State<EditProfilePage> {
               hideText: false,
               // fillcolor: colorLightGrey.withOpacity(0.05), // 5% opacity,
               fillcolor: colorLightGrey.withAlpha((0.05 * 255).toInt()),
+              validate: (val) {
+                if(val!.isEmpty){
+                  return "*Name field required";
+                }else{
+                  return null;
+                }
+              },
             ),
             const Gap(15),
             MyTextFormField(
@@ -89,6 +96,13 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 FilteringTextInputFormatter.digitsOnly,
                 LengthLimitingTextInputFormatter(10),
               ],
+              validate: (val) {
+                if(val!.isEmpty){
+                  return "*Phone Number field required";
+                }else{
+                  return null;
+                }
+              },
             ),
             const Gap(15),
             MyTextFormField(
@@ -99,6 +113,13 @@ class _EditProfilePageState extends State<EditProfilePage> {
               // fillcolor: colorLightGrey.withOpacity(0.05), // 5% opacity,
               fillcolor: colorLightGrey.withAlpha((0.05 * 255).toInt()),
               readOnly: true,
+              validate: (val) {
+                if(val!.isEmpty){
+                  return "*Email field required";
+                }else{
+                  return null;
+                }
+              },
             ),
             const Gap(15),
             MyTextFormField(
@@ -118,6 +139,13 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   lastDate: DateTime(2100)
                 );
                 dOBController.text = "${date!.year}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')}";
+              },
+              validate: (val) {
+                if(val!.isEmpty){
+                  return "*DOB field required";
+                }else{
+                  return null;
+                }
               },
             ),
             const Gap(45),

@@ -52,6 +52,13 @@ class _PasswordManagerPageState extends State<PasswordManagerPage> {
               hideText: true,
               // fillcolor: colorLightGrey.withOpacity(0.05), // 5% opacity,
               fillcolor: colorLightGrey.withAlpha((0.05 * 255).toInt()),
+              validate: (val) {
+                if(val!.isEmpty){
+                  return "*Password field required";
+                }else{
+                  return null;
+                }
+              },
             ),
             const Gap(15),
             Text('New Password', style: GoogleFonts.poppins(fontSize: 14.0),),
@@ -64,6 +71,13 @@ class _PasswordManagerPageState extends State<PasswordManagerPage> {
               hideText: true,
               // fillcolor: colorLightGrey.withOpacity(0.05), // 5% opacity,
               fillcolor: colorLightGrey.withAlpha((0.05 * 255).toInt()),
+              validate: (val) {
+                if(val!.isEmpty){
+                  return "*Password field required";
+                }else{
+                  return null;
+                }
+              },
             ),
             const Gap(15),
             Text('Confirm New Password', style: GoogleFonts.poppins(fontSize: 14.0),),
@@ -76,6 +90,13 @@ class _PasswordManagerPageState extends State<PasswordManagerPage> {
               hideText: true,
               // fillcolor: colorLightGrey.withOpacity(0.05), // 5% opacity,
               fillcolor: colorLightGrey.withAlpha((0.05 * 255).toInt()),
+              validate: (val) {
+                if(val!.isEmpty){
+                  return "*Password field required";
+                }else{
+                  return null;
+                }
+              },
             ),
             const Gap(50),
             MyButton(

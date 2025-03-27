@@ -57,6 +57,13 @@ class _LoginPageState extends State<LoginPage> {
                 controller: emailController,
                 // fillcolor: colorLightGrey.withOpacity(0.05), // 5% opacity,
                 fillcolor: colorLightGrey.withAlpha((0.05 * 255).toInt()),
+                validate: (val) {
+                  if(val!.isEmpty){
+                    return "*Email field required";
+                  }else{
+                    return null;
+                  }
+                },
               ),
 
               const Gap(25),
@@ -69,6 +76,13 @@ class _LoginPageState extends State<LoginPage> {
                 hideText: true,
                 // fillcolor: colorLightGrey.withOpacity(0.05), // 5% opacity,
                 fillcolor: colorLightGrey.withAlpha((0.05 * 255).toInt()),
+                validate: (val) {
+                  if(val!.isEmpty){
+                    return "*Password field required";
+                  }else{
+                    return null;
+                  }
+                },
               ),
 
               const Gap(15),

@@ -59,6 +59,13 @@ class _ForgotPasswordpageState extends State<ForgotPasswordpage> {
                 hideText: false,
                 // fillcolor: colorLightGrey.withOpacity(0.05), // 5% opacity,
                 fillcolor: colorLightGrey.withAlpha((0.05 * 255).toInt()),
+                validate: (val) {
+                  if(val!.isEmpty){
+                    return "*Email field required";
+                  }else{
+                    return null;
+                  }
+                },
               ),
 
               const Gap(25),
