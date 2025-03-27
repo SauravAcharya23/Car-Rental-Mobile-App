@@ -30,6 +30,8 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
   final _formKey = GlobalKey<FormState>();
 
   final _isLoading = StateProvider.autoDispose<bool>((ref) => false,);
+  final _hidePassword = StateProvider.autoDispose<bool>((ref) => true,);
+  final _confirmHidePassword = StateProvider.autoDispose<bool>((ref) => true,);
 
   @override
   Widget build(BuildContext context) {
@@ -110,8 +112,14 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
                   controller: passwordController,
                   hintText: "Password",
                   prefixIcon: Image.asset("lib/images/lock.png"),
-                  suffixIcon: Image.asset("lib/images/eye.png",),
-                  hideText: true,
+                  suffixIcon: GestureDetector(
+                    onTap: (){
+                      ref.read(_confirmHidePassword.notifier).update((state) => !state);// // Reset the loading state
+                    },
+                    child:Image.asset(ref.watch(_confirmHidePassword) ? "lib/images/eye.png" : "lib/images/view.png",)
+                    
+                  ),
+                  hideText: ref.watch(_confirmHidePassword),
                   // fillcolor: colorLightGrey.withOpacity(0.05), // 5% opacity,
                   fillcolor: colorLightGrey.withAlpha((0.05 * 255).toInt()),
                   validate: (val) {
@@ -131,8 +139,14 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
                   controller: confirmPasswordController,
                   hintText: "Confirm Password",
                   prefixIcon: Image.asset("lib/images/lock.png"),
-                  suffixIcon: Image.asset("lib/images/eye.png",),
-                  hideText: true,
+                  suffixIcon: GestureDetector(
+                    onTap: (){
+                      ref.read(_hidePassword.notifier).update((state) => !state);// // Reset the loading state
+                    },
+                    child:Image.asset(ref.watch(_hidePassword) ? "lib/images/eye.png" : "lib/images/view.png",)
+                    
+                  ),
+                  hideText: ref.watch(_hidePassword),
                   // fillcolor: colorLightGrey.withOpacity(0.05), // 5% opacity,
                   fillcolor: colorLightGrey.withAlpha((0.05 * 255).toInt()),
                   validate: (val) {

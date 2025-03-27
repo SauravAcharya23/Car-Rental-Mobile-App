@@ -1,6 +1,5 @@
-import 'package:car_rental_app/presentation/view/pages/Login_Page/login.dart';
+import 'package:car_rental_app/presentation/view/authenticate/wrapper.dart';
 import 'package:car_rental_app/routes/app_routes.dart';
-import 'package:car_rental_app/routes/routes.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -33,8 +32,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
       routes: AppRoutes.routes,
-      initialRoute: Routes.login,
-      home: const LoginPage()
+      // initialRoute: Routes.login,
+      home: const Wrapper()
     );
   }
 }
