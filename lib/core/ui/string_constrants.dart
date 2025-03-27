@@ -6,3 +6,7 @@ const successRegisterMessage = 'Register Successfully. Please Login';
 
 // Login page message
 const errorLogin = 'Could not sign in with those credentials';
+
+//Cards page message
+const cardAddedSuccess = 'Card Added Successfully';
+const cardAlreadyExists = 'Card Already Exists';
