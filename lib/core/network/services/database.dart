@@ -1,5 +1,6 @@
 
 
+import 'package:car_rental_app/model/card_model/Card_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class DatabaseService{
@@ -11,6 +12,7 @@ class DatabaseService{
   final CollectionReference cardCollection = FirebaseFirestore.instance.collection('Cards');
 
 
+  // Add card to database
   Future<String> addCards({required cardName, required cardNumber, required expiryDate, required cvv}) async {
 
     try{
@@ -38,5 +40,23 @@ class DatabaseService{
     }catch(e){
       return e.toString();
     }
+  }
+
+  // Card list from snapshot
+  List<CardModel> _cardListFromSnapshot (QuerySnapshot snapshot){
+    return snapshot.docs.map((doc){
+      // Cast the result of doc.data() to a Map<String, dynamic>
+      final data = doc.data() as Map<String, dynamic>;
+      return  CardModel.fromMap(data);
+    } ).toList();
+  }
+
+  // Get card details
+  Stream<List<CardModel>> get cards{
+    return cardCollection
+      .doc(uid)
+      .collection('cardLists')
+      .snapshots()
+      .map(_cardListFromSnapshot);
   }
 }
