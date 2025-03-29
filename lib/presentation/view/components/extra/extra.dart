@@ -98,3 +98,12 @@ class SnackBarHelper {
     );
   }
 }
+
+
+String checkBrand(String name){
+  if(name.length == 3){
+    return name.toUpperCase();
+  }else{
+    return name[0].toUpperCase() + name.substring(1);
+  }
+}

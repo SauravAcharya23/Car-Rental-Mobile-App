@@ -1,4 +1,6 @@
+import 'package:car_rental_app/core/network/services/auth.dart';
 import 'package:car_rental_app/core/ui/colors.dart';
+import 'package:car_rental_app/presentation/view/pages/Admin/admin.dart';
 import 'package:car_rental_app/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -27,9 +29,26 @@ class AppDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
+            title: Text("Home", style: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.bold),),
+            onTap: () {
+              // Navigator.pushNamed(context, Routes.admin);
+              Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(builder: (context) => AdminPage()), // Replace with your home page widget
+                (route) => false, // Removes all previous routes from the stack
+              );
+            },
+          ),
+          ListTile(
             title: Text("Add Brand", style: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.bold),),
             onTap: () {
               Navigator.pushNamed(context, Routes.addBrand);
+            },
+          ),
+          ListTile(
+            title: Text("Logout", style: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.bold),),
+            onTap: ()async {
+              await AuthService().logout();
             },
           ),
           ListTile(

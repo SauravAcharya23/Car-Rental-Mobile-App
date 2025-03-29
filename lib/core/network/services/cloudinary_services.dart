@@ -1,10 +1,12 @@
 import 'dart:convert';
 import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:car_rental_app/core/network/services/database.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import "package:http/http.dart" as http;
+import 'package:image/image.dart' as img;
 
 
 
@@ -20,19 +22,35 @@ Future<bool> uploadToCloudinary(FilePickerResult? filePickerResult, String brand
 
   String cloudName = dotenv.env['CLOUDINARY_CLOUD_NAME'] ?? '';
 
+  // Decode JPG image
+  // Read the file content as bytes
+  var fileBytes = await file.readAsBytes();
+  // Decode JPG image
+  img.Image? image = img.decodeImage(fileBytes);
+
+  // Encode as PNG
+  Uint8List pngBytes = Uint8List.fromList(img.encodePng(image!));
+
+  // Generate a new filename with .png extension
+  String newFilePath = file.path.replaceAll(RegExp(r'\.jpe?g$', caseSensitive: false), '.png');
+  File pngFile = File(newFilePath);
+  await pngFile.writeAsBytes(pngBytes);
+
+  // Read the PNG file content as bytes
+  Uint8List fileBytesPng = await pngFile.readAsBytes();
+
+  var multipartfile = http.MultipartFile.fromBytes(
+    'file', 
+    fileBytesPng,
+    filename: newFilePath.split("/").last, // use the new filename
+  );
+
+
   // Create a MultipartRequest to upload the file
   var uri = Uri.parse("https://api.cloudinary.com/v1_1/$cloudName/raw/upload");
   var request = http.MultipartRequest("POST", uri);
 
-
-  // Read the file content as bytes
-  var fileBytes = await file.readAsBytes();
-
-  var multipartfile = http.MultipartFile.fromBytes(
-    'file', 
-    fileBytes,
-    filename: file.path.split("/").last
-  );
+  
 
   // Add the file part to the request
   request.files.add(multipartfile);

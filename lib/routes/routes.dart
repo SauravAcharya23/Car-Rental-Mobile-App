@@ -17,4 +17,5 @@ class Routes {
 
   //Admin page routes
   static const String addBrand = 'addBrand';
+  static const String admin = 'admin';
 }

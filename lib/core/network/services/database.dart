@@ -1,5 +1,6 @@
 
 
+import 'package:car_rental_app/model/brand_model/brand_model.dart';
 import 'package:car_rental_app/model/card_model/Card_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -29,6 +30,26 @@ class DatabaseService{
     }catch(e){
       return e.toString();
     }
+  }
+
+  // Brand list from snapshot
+  List<BrandModel> _brandListFromSnapshot (QuerySnapshot snapshot){
+    return snapshot.docs.map((doc){
+      // Cast the result of doc.data() to a Map<String, dynamic>
+      final data = doc.data() as Map<String, dynamic>;
+      return  BrandModel.fromMap(data);
+    } ).toList();
+  }
+
+  // Get brand details
+  Stream<List<BrandModel>> get brands{
+    return brandCollection
+    .snapshots()
+    .map(_brandListFromSnapshot);
+      // .doc(uid)
+      // .collection('cardLists')
+      // .snapshots()
+      // .map(_cardListFromSnapshot);
   }
 
   
