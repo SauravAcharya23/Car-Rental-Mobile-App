@@ -1,3 +1,4 @@
+import 'package:car_rental_app/presentation/view/pages/Admin/add_brands.dart';
 import 'package:car_rental_app/presentation/view/pages/Bottom_Navbar_page/bottom_navbar.dart';
 import 'package:car_rental_app/presentation/view/pages/Car_Details_Page/car_details.dart';
 import 'package:car_rental_app/presentation/view/pages/Filter_Page/filter.dart';
@@ -28,5 +29,9 @@ class AppRoutes {
     Routes.settings: (context) => const SettingsPage(),
     Routes.editProfile: (context) => const EditProfilePage(),
     Routes.passwordManager: (context) => const PasswordManagerPage(),
+
+
+    // Admin page app routes
+    Routes.addBrand: (context) => const AddBrandsPage(),
   };
 }

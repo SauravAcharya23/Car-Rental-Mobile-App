@@ -10,8 +10,28 @@ class DatabaseService{
 
   // Collection Reference
   final CollectionReference cardCollection = FirebaseFirestore.instance.collection('Cards');
+  final CollectionReference brandCollection = FirebaseFirestore.instance.collection('Brands');
 
 
+  // Add brand to database
+  Future<String> addBrand({required String brandName, required String image ,required String url, required String createdAt})async{
+    try{
+      // // Reference to the subcollection
+      // DocumentReference userDocRef = cardCollection.doc(uid);
+      await brandCollection.doc().set({
+        "name": brandName,
+        "image": image,
+        "url": url,
+        "createdAt": createdAt,
+      });
+
+      return '';
+    }catch(e){
+      return e.toString();
+    }
+  }
+
+  
   // Add card to database
   Future<String> addCards({required cardName, required cardNumber, required expiryDate, required cvv}) async {
 

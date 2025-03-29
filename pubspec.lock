@@ -81,6 +81,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.19.1"
+  cross_file:
+    dependency: transitive
+    description:
+      name: cross_file
+      sha256: "7caf6a750a0c04effbb52a676dce9a4a592e10ad35c34d6d2d0e4811160d5670"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.3.4+2"
   crypto:
     dependency: transitive
     description:
@@ -137,6 +145,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "7.0.1"
+  file_picker:
+    dependency: "direct main"
+    description:
+      name: file_picker
+      sha256: "6a8720a68b0e048d97b328d853bd0443e2e9cbf49754dd19b36f8347fd1eea7f"
+      url: "https://pub.dev"
+    source: hosted
+    version: "9.2.2"
   firebase_auth:
     dependency: "direct main"
     description:
@@ -206,6 +222,62 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.1.0"
+  flutter_dotenv:
+    dependency: "direct main"
+    description:
+      name: flutter_dotenv
+      sha256: b7c7be5cd9f6ef7a78429cabd2774d3c4af50e79cb2b7593e3d5d763ef95c61b
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.2.1"
+  flutter_image_compress:
+    dependency: "direct main"
+    description:
+      name: flutter_image_compress
+      sha256: "51d23be39efc2185e72e290042a0da41aed70b14ef97db362a6b5368d0523b27"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.4.0"
+  flutter_image_compress_common:
+    dependency: transitive
+    description:
+      name: flutter_image_compress_common
+      sha256: c5c5d50c15e97dd7dc72ff96bd7077b9f791932f2076c5c5b6c43f2c88607bfb
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.6"
+  flutter_image_compress_macos:
+    dependency: transitive
+    description:
+      name: flutter_image_compress_macos
+      sha256: "20019719b71b743aba0ef874ed29c50747461e5e8438980dfa5c2031898f7337"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.3"
+  flutter_image_compress_ohos:
+    dependency: transitive
+    description:
+      name: flutter_image_compress_ohos
+      sha256: e76b92bbc830ee08f5b05962fc78a532011fcd2041f620b5400a593e96da3f51
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.3"
+  flutter_image_compress_platform_interface:
+    dependency: transitive
+    description:
+      name: flutter_image_compress_platform_interface
+      sha256: "579cb3947fd4309103afe6442a01ca01e1e6f93dc53bb4cbd090e8ce34a41889"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.5"
+  flutter_image_compress_web:
+    dependency: transitive
+    description:
+      name: flutter_image_compress_web
+      sha256: b9b141ac7c686a2ce7bb9a98176321e1182c9074650e47bb140741a44b6f5a96
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.5"
   flutter_inappwebview:
     dependency: transitive
     description:
@@ -283,6 +355,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_plugin_android_lifecycle:
+    dependency: transitive
+    description:
+      name: flutter_plugin_android_lifecycle
+      sha256: "5a1e6fb2c0561958d7e4c33574674bda7b77caaca7a33b758876956f2902eea3"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.27"
   flutter_riverpod:
     dependency: "direct main"
     description:
@@ -382,7 +462,7 @@ packages:
     source: hosted
     version: "0.12.4+4"
   http:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: http
       sha256: fe7ab022b76f3034adc518fb6ea04a82387620e19977665ea18d30a1cf43442f
@@ -770,6 +850,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.1"
+  win32:
+    dependency: transitive
+    description:
+      name: win32
+      sha256: dc6ecaa00a7c708e5b4d10ee7bec8c270e9276dfcab1783f57e9962d7884305f
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.12.0"
   xdg_directories:
     dependency: transitive
     description:

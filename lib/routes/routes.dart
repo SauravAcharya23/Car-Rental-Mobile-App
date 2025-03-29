@@ -14,4 +14,7 @@ class Routes {
   static const String settings = 'settings';
   static const String editProfile = 'editProfile';
   static const String passwordManager = 'passwordManager';
+
+  //Admin page routes
+  static const String addBrand = 'addBrand';
 }
