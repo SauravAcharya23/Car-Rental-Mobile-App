@@ -12,7 +12,7 @@ import 'package:image/image.dart' as img;
 
 // Uploading files to cloudinary
 
-Future<bool> uploadToCloudinary(FilePickerResult? filePickerResult, String brandname)async{
+Future<bool> uploadToCloudinary(FilePickerResult? filePickerResult, String? brandname, Map<String,dynamic>? data)async{
   if(filePickerResult == null || filePickerResult.files.isEmpty){
     print("No file selected!");
     return false;
@@ -72,12 +72,19 @@ Future<bool> uploadToCloudinary(FilePickerResult? filePickerResult, String brand
 
     var jsonResponse = jsonDecode(responseBody);
 
-    await DatabaseService().addBrand(
-      brandName: brandname,
-      image: filePickerResult.files.first.name,
-      url: jsonResponse['secure_url'],
-      createdAt: jsonResponse['created_at'],
-    );
+    if(brandname != null){
+      await DatabaseService().addBrand(
+        brandName: brandname,
+        image: filePickerResult.files.first.name,
+        url: jsonResponse['secure_url'],
+        createdAt: jsonResponse['created_at'],
+      );
+    }else{
+      data!.addAll({"url":jsonResponse['secure_url']});
+
+      await DatabaseService().addProduct(data: data);
+    }
+    
     
     print("Upload successful!");
     return true;

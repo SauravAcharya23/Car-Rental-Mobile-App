@@ -46,23 +46,15 @@ class AppDrawer extends StatelessWidget {
             },
           ),
           ListTile(
+            title: Text("Add Product", style: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.bold),),
+            onTap: () {
+              Navigator.pushNamed(context, Routes.addProduct);
+            },
+          ),
+          ListTile(
             title: Text("Logout", style: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.bold),),
             onTap: ()async {
               await AuthService().logout();
-            },
-          ),
-          ListTile(
-            leading: Icon(Icons.person),
-            title: Text("Profile"),
-            onTap: () {
-              // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => ProfilePage()));
-            },
-          ),
-          ListTile(
-            leading: Icon(Icons.settings),
-            title: Text("Settings"),
-            onTap: () {
-              // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SettingsPage()));
             },
           ),
         ],

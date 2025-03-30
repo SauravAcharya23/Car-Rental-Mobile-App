@@ -12,6 +12,22 @@ class DatabaseService{
   // Collection Reference
   final CollectionReference cardCollection = FirebaseFirestore.instance.collection('Cards');
   final CollectionReference brandCollection = FirebaseFirestore.instance.collection('Brands');
+  final CollectionReference productCollection = FirebaseFirestore.instance.collection('Products');
+
+
+
+
+  // Add product to database
+  Future<String> addProduct({required Map<String,dynamic> data})async{
+    try{
+      // // Reference to the subcollection
+      await productCollection.doc().set(data);
+
+      return '';
+    }catch(e){
+      return e.toString();
+    }
+  }
 
 
   // Add brand to database

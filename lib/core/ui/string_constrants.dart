@@ -11,6 +11,10 @@ const errorLogin = 'Could not sign in with those credentials';
 const cardAddedSuccess = 'Card Added Successfully';
 const cardAlreadyExists = 'Card Already Exists';
 
-// Add brans message
+// Add brands message
 const uplaodFileSuccess = "File uplaoded successfully";
 const uploadFileError = "Cannot upload your file";
+
+// Add product message
+const uplaodProductSuccess = "Product uplaoded successfully";
+const uploadProductError = "Cannot upload your product";

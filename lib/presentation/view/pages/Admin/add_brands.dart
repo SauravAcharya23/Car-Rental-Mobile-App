@@ -124,7 +124,7 @@ class _AddBrandsPageState extends ConsumerState<AddBrandsPage> {
                     if(_formKey.currentState!.validate()){
                       ref.read(_isLoading.notifier).state = true; // Use `read` for updates
                       // print("Objextssssssss: ${_filePickerResult?.files.single.name}");
-                      final result = await uploadToCloudinary(_filePickerResult, brandNameController.text.trim().toString());
+                      final result = await uploadToCloudinary(_filePickerResult, brandNameController.text.trim().toString(), null);
                       if(result){
                         SnackBarHelper.showSuccessSnackBar(context, uplaodFileSuccess);
                       }else{
